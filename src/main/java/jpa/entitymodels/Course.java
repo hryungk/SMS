@@ -3,10 +3,12 @@ package jpa.entitymodels;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="Course")
+@NamedQuery(name = "Course.findAll", query = "SELECT c from Course c")
 public class Course {
 	
 	@Id	
