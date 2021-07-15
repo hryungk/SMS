@@ -6,6 +6,7 @@
 	<persistence-unit name="SMS">
 		<class>jpa.entitymodels.Student</class>
 		<class>jpa.entitymodels.Course</class>
+		<class>jpa.entitymodels.StudentCourse</class>
 		<properties>
             <!-- Configuring The Database Connection Details -->
             <property name="jakarta.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver" />

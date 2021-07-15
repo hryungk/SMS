@@ -46,7 +46,11 @@ public class StudentService implements StudentDAO {
 		
 		Student student = entityManager.find(Student.class, sEmail);
 		if (student != null) {// Student's email exists in the database
-			result = student.getsPass().equals(sPassword);
+			result = student.getsPass().equals(sPassword);			
+		}
+		
+		if (!result) { // password incorrect
+			System.out.println("Wrong Credentials");
 		}
 		
 		entityManager.close();

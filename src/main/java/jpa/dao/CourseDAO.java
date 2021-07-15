@@ -13,4 +13,13 @@ public interface CourseDAO {
 	 * @return A List of Course objects containing all courses in the database
 	 */
 	List<Course> getAllCourses();
+	
+	/**
+	 * Takes a Course's ID as a String and parses the Course with that ID
+	 * and returns a Course object
+	 * 
+	 * @param cId An integer containing a Course's ID
+	 * @return A Course object that has the same ID as cId
+	 */
+	Course getCourseById(int cId);
 }
