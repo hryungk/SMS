@@ -26,4 +26,16 @@ public class CourseService implements CourseDAO {
 		return courses;
 	}
 
+	@Override
+	public Course getCourseById(int cId) {
+		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("SMS");
+		EntityManager entityManager = emfactory.createEntityManager();		
+		
+		Course course = entityManager.find(Course.class, cId);		
+		
+		entityManager.close();
+		emfactory.close();
+		return course;
+	}
+
 }
