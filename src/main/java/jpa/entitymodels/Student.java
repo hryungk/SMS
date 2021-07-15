@@ -6,11 +6,13 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="Student")
+@NamedQuery(name = "Student.findAll", query = "SELECT s from Student s")
 public class Student {
 
 	/* Make sure the table name and the field name match by either
@@ -24,8 +26,8 @@ public class Student {
 	private String sName; // The full name of the student
 	@Column(name="password")
 	private String sPass; // Student's password in order to login
-//	@OneToMany(targetEntity = Course.class)
-	private List sCourses; // All the courses that a student's registered for
+	@OneToMany(targetEntity = Course.class)
+	private List<Course> sCourses; // All the courses that a student's registered for
 	
 	public Student() {
 		sEmail = "";
@@ -33,7 +35,7 @@ public class Student {
 		sPass = "";
 		sCourses = new ArrayList<>();
 	}
-	public Student(String sEmail, String sName, String sPass, List sCourses) {
+	public Student(String sEmail, String sName, String sPass, List<Course> sCourses) {
 		super();
 		this.sEmail = sEmail;
 		this.sName = sName;
@@ -58,10 +60,10 @@ public class Student {
 	public void setsPass(String sPass) {
 		this.sPass = sPass;
 	}
-	public List getsCourses() {
+	public List<Course> getsCourses() {
 		return sCourses;
 	}
-	public void setsCourses(List sCourses) {
+	public void setsCourses(List<Course> sCourses) {
 		this.sCourses = sCourses;
 	}	
 		
